@@ -62,14 +62,9 @@ void Motor_PID_Task(void)
         pid_control_flag  = 0;
         
         Target = AD_GetValue()* 2 - 100;
-        if (Target == 0)
-        {
-            Motor_SetSpeed(&hmotorA, 0);
-        }
-        else
-        {
-            Motor_SetSpeed(&hmotorA, Motor_PID_calc());
-        }
+
+        Motor_SetSpeed(&hmotorA, Motor_PID_calc());
+        
     }
 }
 
